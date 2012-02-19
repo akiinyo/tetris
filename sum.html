@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <title>Sample</title>
+
+    <script type="text/javascript">
+
+      function main() {
+        var elmTarget = document.getElementById('target');
+        var elmValue0 = document.getElementById('value0');
+        var elmValue1 = document.getElementById('value1');
+
+        elmTarget.innerHTML = parseInt(elmValue0.value) +
+          parseInt(elmValue1.value);
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <p id="target">Hello,world!</p>
+    <input id="value0" type="text" value="100" />
+    +
+    <input id="value1" type="text" value="200" />
+    <input type="button" value="click" onclick="main()" />
+  </body>
+</html>
