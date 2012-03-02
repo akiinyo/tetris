@@ -79,10 +79,37 @@
           posx = 0; posy = 0;
         }
       }
+
+      function key(keyCode){
+        switch(keyCode){
+          case 39:
+            if(!check(map, block, posx + 1, posy)){
+              return;
+            }
+            posx += 1;
+            break;
+          case 37:
+            if(!check(map, block, posx - 1, posy)){
+              return;
+            }
+            posx -= 1;
+            break;
+          case 40:
+            var y = posy;
+            while(check(map, block, posx, y)) { y++; }
+            posy = y - 1;
+            break;
+          default:
+            return;
+        }
+        ctx.clearRect(0, 0, 200, 400);
+        paintMatrix(block, posx, posy, 'rgb(255, 0, 0)');
+        paintMatrix(map, 0, 0, 'rgb(128, 128, 128)');
+      }
     </script>
   </head>
 
-  <body onload="load()">
+  <body onload="load()" onkeydown="key(event.keyCode)">
     <canvas id="target" style="border: 5px solid gray" width="200" height="400"></canvas>
   </body>
 </html>
