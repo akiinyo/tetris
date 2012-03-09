@@ -69,7 +69,7 @@
         }
       };
 
-      var check function(map, block, offsetx, offsety){
+      var check = function(map, block, offsetx, offsety){
         if (offsetx < 0 || offsety < 0 ||
             mapHeight < offsety + block.length ||
             mapWidth < offsetx + block[0].length){
