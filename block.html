@@ -43,7 +43,7 @@
       var posx = 0, posy= 0;
       var map, mapWidth = 10, mapHeight = 20;
 
-      function load() {
+      var load = function() {
         var elmTarget = document.getElementById('target');
         ctx = elmTarget.getContext('2d');
 
@@ -56,9 +56,9 @@
         }
 
         setInterval(paint, 200);
-      }
+      };
 
-      function paintMatrix(matrix, offsetx, offsety, color) {
+      var paintMatrix = function(matrix, offsetx, offsety, color) {
         ctx.fillStyle = color;
         for(var y = 0; y < matrix.length; y++) {
           for(var x = 0; x < matrix[y].length; x++) {
@@ -67,9 +67,9 @@
             }
           }
         }
-      }
+      };
 
-      function check(map, block, offsetx, offsety){
+      var check function(map, block, offsetx, offsety){
         if (offsetx < 0 || offsety < 0 ||
             mapHeight < offsety + block.length ||
             mapWidth < offsetx + block[0].length){
@@ -83,9 +83,9 @@
           }
         }
         return true;
-      }
+      };
 
-      function mergeMatrix(map, block, offsetx, offsety){
+      var mergeMatrix = function(map, block, offsetx, offsety){
         for(var y = 0; y < mapHeight; y++){
           for(var x = 0; x < mapWidth; x++){
             if(block[y - offsety] && block[y - offsety][x - offsetx]){
@@ -93,9 +93,9 @@
             }
           }
         }
-      }
+      };
 
-      function clearRows(map) {
+      var clearRows = function(map) {
         for(var y = 0; y < mapHeight; y++){
           var full = true;
           for(var x = 0; x < mapWidth; x++){
@@ -112,9 +112,9 @@
             map.unshift(newRow);
           }
         }
-      }
+      };
 
-      function paint() {
+      var paint = function() {
         ctx.clearRect(0, 0, 200, 400);
         paintMatrix(map, 0, 0, 'rgb(128, 128, 128)');
         paintMatrix(block, posx, posy, 'rgb(255, 0, 0)');
@@ -128,9 +128,9 @@
           posx = 0; posy = 0;
           block = blocks[Math.floor(Math.random() * blocks.length)];
         }
-      }
+      };
 
-      function rotate(block){
+      var rotate = function(block){
         var rotated = [];
         for(var x = 0; x < block[0].length; x++){
           rotated[x] = [];
@@ -139,9 +139,9 @@
           }
         }
         return rotated;
-      }
+      };
 
-      function key(keyCode){
+      var key = function(keyCode){
         switch(keyCode){
           case 38:
             if(!check(map, rotate(block), posx, posy)){
@@ -172,7 +172,7 @@
         ctx.clearRect(0, 0, 200, 400);
         paintMatrix(block, posx, posy, 'rgb(255, 0, 0)');
         paintMatrix(map, 0, 0, 'rgb(128, 128, 128)');
-      }
+      };
     </script>
   </head>
 
