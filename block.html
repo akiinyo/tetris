@@ -143,6 +143,12 @@
 
       var key = function(keyCode){
         switch(keyCode){
+          case 32:
+            if(!check(map, rotate(block), posx, posy)){
+              return;
+            }
+            block = rotate(block);
+            break;
           case 38:
             if(!check(map, rotate(block), posx, posy)){
               return;
