@@ -55,7 +55,21 @@
           }
         }
 
-        setInterval(paint, 200);
+        setInterval(function() {
+          ctx.clearRect(0, 0, 200, 400);
+          paintMatrix(block, posx, posy, 'rgb(255, 0, 0)');
+          paintMatrix(map, 0, 0, 'rgb(128, 128, 128)');
+
+          if(check(map, block, posx, posy + 1)){
+            posy += 1;
+          }
+          else {
+            mergeMatrix(map, block, posx, posy);
+            clearRows(map);
+            posx = 0; posy = 0;
+            block = blocks[Math.floor(Math.random() * blocks.length)];
+          }
+        }, 200);
       };
 
       var paintMatrix = function(matrix, offsetx, offsety, color) {
@@ -111,22 +125,6 @@
             }
             map.unshift(newRow);
           }
-        }
-      };
-
-      var paint = function() {
-        ctx.clearRect(0, 0, 200, 400);
-        paintMatrix(map, 0, 0, 'rgb(128, 128, 128)');
-        paintMatrix(block, posx, posy, 'rgb(255, 0, 0)');
-
-        if(check(map, block, posx, posy + 1)){
-          posy += 1;
-        }
-        else {
-          mergeMatrix(map, block, posx, posy);
-          clearRows(map);
-          posx = 0; posy = 0;
-          block = blocks[Math.floor(Math.random() * blocks.length)];
         }
       };
 
