@@ -92,7 +92,6 @@
         }));
       };
 
-
       var ctx;
       var blocks = [
         new Matrix([
@@ -140,7 +139,30 @@
 
         setInterval(function() {
           ctx.clearRect(0, 0, 200, 400);
-          block.paint(posx, posy, 'rgb(255, 0, 0)');
+          var color;
+          switch(block){
+            case blocks[0]:
+              color = 'rgb(255, 0, 0)'
+              break;
+            case blocks[1]:
+              color = 'rgb(255, 0, 0)'
+              break;
+            case blocks[2]:
+              color = 'rgb(0, 255, 0)'
+              break;
+            case blocks[3]:
+              color = 'rgb(0, 255, 0)'
+              break;
+            case blocks[4]:
+              color = 'rgb(0, 255, 0)'
+              break;
+            case blocks[5]:
+              color = 'rgb(0, 0, 255)'
+              break;
+            default:
+              color = 'rgb(0, 0, 255)';
+          }
+          block.paint(posx, posy, color);
           map.paint(0, 0, 'rgb(128, 128, 128)');
 
           if(map.check(block, posx, posy + 1)){
@@ -190,7 +212,29 @@
             return;
         }
         ctx.clearRect(0, 0, 200, 400);
-        block.paint(posx, posy, 'rgb(255, 0, 0)');
+        switch(block){
+          case blocks[0]:
+            color = 'rgb(255, 0, 0)'
+            break;
+          case blocks[1]:
+            color = 'rgb(255, 0, 0)'
+            break;
+          case blocks[2]:
+            color = 'rgb(0, 255, 0)'
+            break;
+          case blocks[3]:
+            color = 'rgb(0, 255, 0)'
+            break;
+          case blocks[4]:
+            color = 'rgb(0, 255, 0)'
+            break;
+          case blocks[5]:
+            color = 'rgb(0, 0, 255)'
+            break;
+          default:
+            color = 'rgb(0, 0, 255)';
+        }
+        block.paint(posx, posy, color);
         map.paint(0, 0, 'rgb(128, 128, 128)');
       };
     </script>
