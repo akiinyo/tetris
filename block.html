@@ -126,7 +126,10 @@
         ])
       ];
 
+      var colors = ['rgb(255,102,255)','rgb(102,153,255)','rgb(255,204,51)','rgb(153,255,153)']
+
       var block = blocks[Math.floor(Math.random() * blocks.length)];
+      var color = colors[Math.floor(Math.random() * colors.length)];
       var posx = 0, posy= 0;
 
       var map = new Matrix(new Array(20).each(function() {
@@ -139,29 +142,6 @@
 
         setInterval(function() {
           ctx.clearRect(0, 0, 200, 400);
-          var color;
-          switch(block){
-            case blocks[0]:
-              color = 'rgb(255, 0, 0)'
-              break;
-            case blocks[1]:
-              color = 'rgb(255, 0, 0)'
-              break;
-            case blocks[2]:
-              color = 'rgb(0, 255, 0)'
-              break;
-            case blocks[3]:
-              color = 'rgb(0, 255, 0)'
-              break;
-            case blocks[4]:
-              color = 'rgb(0, 255, 0)'
-              break;
-            case blocks[5]:
-              color = 'rgb(0, 0, 255)'
-              break;
-            default:
-              color = 'rgb(0, 0, 255)';
-          }
           block.paint(posx, posy, color);
           map.paint(0, 0, 'rgb(128, 128, 128)');
 
@@ -173,6 +153,7 @@
             map.clearRows();
             posx = 0; posy = 0;
             block = blocks[Math.floor(Math.random() * blocks.length)];
+            color = colors[Math.floor(Math.random() * colors.length)];
           }
         }, 300);
       };
@@ -212,28 +193,6 @@
             return;
         }
         ctx.clearRect(0, 0, 200, 400);
-        switch(block){
-          case blocks[0]:
-            color = 'rgb(255, 0, 0)'
-            break;
-          case blocks[1]:
-            color = 'rgb(255, 0, 0)'
-            break;
-          case blocks[2]:
-            color = 'rgb(0, 255, 0)'
-            break;
-          case blocks[3]:
-            color = 'rgb(0, 255, 0)'
-            break;
-          case blocks[4]:
-            color = 'rgb(0, 255, 0)'
-            break;
-          case blocks[5]:
-            color = 'rgb(0, 0, 255)'
-            break;
-          default:
-            color = 'rgb(0, 0, 255)';
-        }
         block.paint(posx, posy, color);
         map.paint(0, 0, 'rgb(128, 128, 128)');
       };
