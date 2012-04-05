@@ -140,7 +140,7 @@
         var elmTarget = document.getElementById('target');
         ctx = elmTarget.getContext('2d');
 
-        setInterval(function() {
+      var playing = setInterval(function() {
           ctx.clearRect(0, 0, 200, 400);
           block.paint(posx, posy, color);
           map.paint(0, 0, 'rgb(128, 128, 128)');
@@ -151,6 +151,13 @@
           else {
             map.merge(block, posx, posy);
             map.clearRows();
+            if(posy <= 0){
+              map.paint(0, 0, 'rgb(128, 128, 128)');
+              alert("GAMEOVER");
+              ctx.clearRect(0, 0, 200, 400);
+              clearInterval(playing);
+              location.reload();
+            }
             posx = 0; posy = 0;
             block = blocks[Math.floor(Math.random() * blocks.length)];
             color = colors[Math.floor(Math.random() * colors.length)];
