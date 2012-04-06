@@ -2,7 +2,21 @@
 <html>
   <head>
     <meta charset=utf-8>
-    <title>Sample</title>
+    <title>あきーにょテトリス</title>
+
+    <style type="text/css">
+      h1{
+        text-align: center;
+        font-size: 24px;
+        color: rgb(255,51,204);
+        padding-top: 30px
+      }
+
+      .main{
+        text-align: center;
+        padding: 10px
+      }
+    </style>
 
     <script type="text/javascript">
 
@@ -213,8 +227,11 @@
   </head>
 
   <body onkeydown="key(event.keyCode)">
-    <canvas id="target" style="border: 5px solid gray" width="200" height="400"></canvas>
-    <input type="button" value="start" onclick="load()" />
-    <p id="score">得点：０</p>
+    <h1>あきーにょテトリス</h1>
+    <div class="main">
+      <canvas id="target" style="border: 5px solid gray" width="200" height="400"></canvas>
+      <p id="score">得点：０</p>
+      <input type="button" value="start" onclick="load()" />
+    </div>
   </body>
 </html>
